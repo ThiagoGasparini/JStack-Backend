@@ -12,8 +12,7 @@ module.exports = {
       return a.id > b.id ? 1 : -1;
     });
 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(sortedUsers));
+    res.send(200, sortedUsers);
   },
 
   listProducts(req, res) {
@@ -26,7 +25,6 @@ module.exports = {
       return a.id > b.id ? 1 : -1;
     });
 
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(sortedProducts));
+    res.send(200, sortedProducts);
   },
 };
