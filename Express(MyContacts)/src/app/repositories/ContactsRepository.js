@@ -15,11 +15,14 @@ class ContactsRepository {
   }
 
   async findById(id) {
-    const [row] = await db.query(`
+    const [row] = await db.query(
+      `
       SELECT contacts.*, categories.name AS category_name
       FROM contacts
       LEFT JOIN categories ON categories.id = contacts.category_id
-      WHERE contacts.id = $1`, [id]);
+      WHERE contacts.id = $1`,
+      [id],
+    );
     return row;
   }
 
@@ -51,7 +54,8 @@ class ContactsRepository {
     name, email, phone, category_id,
   }) {
     const [row] = await db.query(
-      `UPDATE contacts
+      `
+      UPDATE contacts
       SET name = $1, email = $2, phone = $3, category_id = $4
       WHERE id = $5
       RETURNING *
