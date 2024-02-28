@@ -38,11 +38,11 @@ function App() {
       <hr />
       {posts.map((post) => (
         <div key={post.id}>
-          <button onClick={() => handleDelete(post.id)}>Excluir</button>
           <Post
             likes={post.likes}
             title={post.title}
             subtitle={post.subtitle}
+            onRemove={() => handleDelete(post.id)}
           />
         </div>
       ))}

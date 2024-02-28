@@ -6,6 +6,7 @@ export default function Post(props) {
     <>
       <article>
         <strong>{props.title}</strong>
+        <button onClick={props.onRemove}>Remover</button>
         <br />
         <small>{props.subtitle}</small>
         <br />
@@ -20,4 +21,5 @@ Post.propTypes = {
   likes: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
