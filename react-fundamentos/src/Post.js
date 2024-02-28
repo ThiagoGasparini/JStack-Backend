@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Post({ title, subtitle, likes }) {
+export default function Post(props) {
   return (
     <>
       <article>
-        <strong>{title}</strong>
+        <strong>{props.title}</strong>
         <br />
-        <small>{subtitle}</small>
+        <small>{props.subtitle}</small>
         <br />
-        Média: {likes / 2}
+        Média: {props.likes / 2}
       </article>
       <br />
     </>
