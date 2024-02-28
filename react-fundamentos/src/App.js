@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 import Post from './Post';
+import Header from './Header';
 
 function App() {
-  const text = 'Hello World!';
-
   return (
     <Fragment>
-      <h1>Componente App</h1>
-      <h2>{text ? text : <h2>O texto está vazio</h2>}</h2>
-
+      <Header title="JStack's Blog">
+        <h2>O texto está vazio!</h2>
+      </Header>
       <hr />
 
       <Post title="Título da notícia 01" subtitle="Subtítulo da notícia 01" />
