@@ -10,10 +10,10 @@ function App() {
       </Header>
       <hr />
 
-      <Post title="Título da notícia 01" subtitle="Subtítulo da notícia 01" />
-      <Post title="Título da notícia 02" subtitle="Subtítulo da notícia 02" />
-      <Post title="Título da notícia 03" subtitle="Subtítulo da notícia 03" />
-      <Post title="Título da notícia 04" subtitle="Subtítulo da notícia 04" />
+      <Post likes={20} title="Título da notícia 01" subtitle="Subtítulo da notícia 01" />
+      <Post likes={15} title="Título da notícia 02" subtitle="Subtítulo da notícia 02" />
+      <Post likes={25} title="Título da notícia 03" subtitle="Subtítulo da notícia 03" />
+      <Post likes={28} title="Título da notícia 04" subtitle="Subtítulo da notícia 04" />
     </Fragment>
   );
 }
