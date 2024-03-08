@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { ThemeContext } from './App';
 
 export default function Button(props) {
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <button 
-      onClick={props.onRemove}
+      onClick={props.onClick}
       style={{ 
         color: theme === 'dark' ? '#fff' : '#000',
         background: theme === 'dark' ? '#000' : '#fff'
@@ -19,5 +19,5 @@ export default function Button(props) {
 }
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onRemove: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

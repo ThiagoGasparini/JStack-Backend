@@ -8,7 +8,7 @@ export default function PostBody(props) {
       <strong>
         {props.post.read ? <s>{props.post.title}</s> : props.post.title}
       </strong>
-      <Button onRemove={props.onRemove}>Remover</Button>
+      <Button onClick={props.onRemove}>Remover</Button>
     </>
   );
 }

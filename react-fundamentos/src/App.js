@@ -61,8 +61,8 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <Header title="JStack's Blog" onToggleTheme={handleToggleTheme}>
+    <ThemeContext.Provider value={{ theme, onToggleTheme: handleToggleTheme }}>
+      <Header title="JStack's Blog">
         <h2>
           O texto está vazio!
           <button onClick={handleRefresh}>Atualizar</button>
