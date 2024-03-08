@@ -12,7 +12,6 @@ export default function Post(props) {
             title: props.post.title,
             read: props.post.read,
           }}
-          theme={props.theme}
         />
         <br />
         <small>{props.post.subtitle}</small>
@@ -25,7 +24,6 @@ export default function Post(props) {
 }
 
 Post.propTypes = {
-  theme: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired,
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,

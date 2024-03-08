@@ -1,6 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState, createContext } from 'react';
 import Post from './Post';
 import Header from './Header';
+
+export const ThemeContext = createContext('dark');
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -59,8 +61,8 @@ function App() {
   };
 
   return (
-    <Fragment>
-      <Header title="JStack's Blog" onToggleTheme={handleToggleTheme} theme={theme}>
+    <ThemeContext.Provider value={theme}>
+      <Header title="JStack's Blog" onToggleTheme={handleToggleTheme}>
         <h2>
           O texto está vazio!
           <button onClick={handleRefresh}>Atualizar</button>
@@ -70,13 +72,13 @@ function App() {
       {posts.length ? (
         posts.map((post) => (
           <div key={post.id}>
-            <Post post={post} onRemove={() => handleDelete(post.id)} theme={theme} />
+            <Post post={post} onRemove={() => handleDelete(post.id)} />
           </div>
         ))
       ) : (
         <h2>Nenhum Post Adicionado!!!</h2>
       )}
-    </Fragment>
+    </ThemeContext.Provider>
   );
 }
 
