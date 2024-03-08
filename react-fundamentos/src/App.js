@@ -1,12 +1,9 @@
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
 import Post from './Post';
 import Header from './Header';
-
-export const ThemeContext = createContext('dark');
+import { ThemeProvider } from './ThemeContext'
 
 function App() {
-  const [theme, setTheme] = useState('dark');
-
   const [posts, setPosts] = useState([
     {
       id: Math.random(),
@@ -38,10 +35,6 @@ function App() {
     },
   ]);
 
-  const handleToggleTheme = () => {
-    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'));
-  };
-
   const handleRefresh = () => {
     setPosts((prevState) => [
       ...prevState,
@@ -61,7 +54,7 @@ function App() {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, onToggleTheme: handleToggleTheme }}>
+    <ThemeProvider>
       <Header title="JStack's Blog">
         <h2>
           O texto está vazio!
@@ -78,7 +71,7 @@ function App() {
       ) : (
         <h2>Nenhum Post Adicionado!!!</h2>
       )}
-    </ThemeContext.Provider>
+    </ThemeProvider>
   );
 }
 
