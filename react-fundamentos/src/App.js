@@ -3,6 +3,8 @@ import Post from './Post';
 import Header from './Header';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+
   const [posts, setPosts] = useState([
     {
       id: Math.random(),
@@ -34,6 +36,10 @@ function App() {
     },
   ]);
 
+  const handleToggleTheme = () => {
+    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'));
+  };
+
   const handleRefresh = () => {
     setPosts((prevState) => [
       ...prevState,
@@ -54,21 +60,22 @@ function App() {
 
   return (
     <Fragment>
-      <Header title="JStack's Blog">
+      <Header title="JStack's Blog" onToggleTheme={handleToggleTheme} theme={theme}>
         <h2>
           O texto está vazio!
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
       </Header>
       <hr />
-      { posts.length ? posts.map((post) => (
-        <div key={post.id}>
-          <Post
-            post={post}
-            onRemove={() => handleDelete(post.id)}
-          />
-        </div>
-      )) : <h2>Nenhum Post Adicionado!!!</h2>}
+      {posts.length ? (
+        posts.map((post) => (
+          <div key={post.id}>
+            <Post post={post} onRemove={() => handleDelete(post.id)} theme={theme} />
+          </div>
+        ))
+      ) : (
+        <h2>Nenhum Post Adicionado!!!</h2>
+      )}
     </Fragment>
   );
 }

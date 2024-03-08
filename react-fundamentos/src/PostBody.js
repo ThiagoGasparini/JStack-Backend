@@ -8,12 +8,13 @@ export default function PostBody(props) {
       <strong>
         {props.post.read ? <s>{props.post.title}</s> : props.post.title}
       </strong>
-      <Button onClick={props.onRemove}>Remover</Button>
+      <Button onClick={props.onRemove} theme={props.theme}>Remover</Button>
     </>
   );
 }
 
 PostBody.propTypes = {
+  theme: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired,
   post: PropTypes.shape({
     title: PropTypes.string.isRequired,
