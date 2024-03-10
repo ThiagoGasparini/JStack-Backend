@@ -57,7 +57,7 @@ function App() {
     <ThemeProvider>
       <Header title="JStack's Blog">
         <h2>
-          O texto está vazio!
+          Posts da Semana!
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
       </Header>
