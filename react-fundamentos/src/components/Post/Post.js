@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PostBody from './PostBody';
-import { Subtitle, Rate } from './styles';
+import { Subtitle, Rate, Container } from './styles';
 
 export default function Post(props) {
   return (
     <>
-      <article>
+      <Container>
         <PostBody
           onRemove={props.onRemove}
           post={{
@@ -16,7 +16,7 @@ export default function Post(props) {
         />
         <Subtitle>{props.post.subtitle}</Subtitle>
         <Rate>Média: {props.post.likes / 2}</Rate>
-      </article>
+      </Container>
       <br />
     </>
   );
