@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Post from './Post';
 import Header from './Header';
-import { ThemeProvider } from './ThemeContext'
+import { ThemeProvider } from '../context/ThemeContext'
 
 function App() {
   const [posts, setPosts] = useState([
