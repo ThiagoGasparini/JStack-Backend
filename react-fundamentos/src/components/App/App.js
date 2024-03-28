@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Post from './Post/Post';
-import Header from './Header';
-import { ThemeProvider } from '../context/ThemeContext'
+import Post from '../Post/Post';
+import Header from '../Header';
+import { ThemeProvider } from '../../context/ThemeContext';
+import { Title } from './styles';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -37,7 +38,7 @@ function App() {
 
   const randomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  };
 
   const handleRefresh = () => {
     setPosts((prevState) => [
@@ -60,10 +61,10 @@ function App() {
   return (
     <ThemeProvider>
       <Header title="JStack's Blog">
-        <h2>
+        <Title as="h2">
           Posts da Semana!
           <button onClick={handleRefresh}>Atualizar</button>
-        </h2>
+        </Title>
       </Header>
       <hr />
       {posts.length ? (
