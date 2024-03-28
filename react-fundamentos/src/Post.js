@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import PostBody from './PostBody';
 
 export default function Post(props) {
+
   return (
     <>
       <article>

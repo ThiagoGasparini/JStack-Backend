@@ -35,6 +35,10 @@ function App() {
     },
   ]);
 
+  const randomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   const handleRefresh = () => {
     setPosts((prevState) => [
       ...prevState,
@@ -42,7 +46,7 @@ function App() {
         id: Math.random(),
         title: `Title#${prevState.length + 1}`,
         subtitle: `Sub#${prevState.length + 1}`,
-        likes: 20,
+        likes: randomNumber(1, 50),
         read: true,
       },
     ]);
