@@ -41,16 +41,24 @@ function App() {
   };
 
   const handleRefresh = () => {
-    setPosts((prevState) => [
-      ...prevState,
-      {
-        id: Math.random(),
-        title: `Title#${prevState.length + 1}`,
-        subtitle: `Sub#${prevState.length + 1}`,
-        likes: randomNumber(1, 50),
-        read: true,
-      },
-    ]);
+    setPosts(prevState => {
+      const highestNumber = Math.max(...prevState.map(post => parseInt(post.title.match(/\d+/))));
+      const newNumber = isNaN(highestNumber) ? 1 : highestNumber + 1;
+  
+      const newTitle = `Title#${newNumber.toString().padStart(2, '0')}`;
+      const newSubtitle = `Sub#${newNumber.toString().padStart(2, '0')}`;
+  
+      return [
+        ...prevState,
+        {
+          id: Math.random(),
+          title: newTitle,
+          subtitle: newSubtitle,
+          likes: randomNumber(1, 50),
+          read: true,
+        },
+      ];
+    });
   };
 
   const handleDelete = (id) => {
