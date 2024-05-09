@@ -1,1 +1,0 @@
-// frontend sera iniciado com react.js
