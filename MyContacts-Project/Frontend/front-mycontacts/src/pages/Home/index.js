@@ -1,18 +1,27 @@
 import {
-  Container, Header, ListContainer, Card,
+  Container,
+  Header,
+  ListContainer,
+  Card,
+  InputSearchContainer,
 } from './styles';
 
 import arrow from '../../assets/icons/arrow.svg';
 import edit from '../../assets/icons/edit.svg';
 import trash from '../../assets/icons/trash.svg';
 
-export default function ContactsList() {
+export default function Home() {
   return (
     <Container>
+      <InputSearchContainer>
+        <input type="text" placeholder="Pesquisar contato" />
+      </InputSearchContainer>
+
       <Header>
         <strong>3 Contatos</strong>
         <a href="/">Novo Contato</a>
       </Header>
+
       <ListContainer>
         <header>
           <button type="button">
@@ -21,6 +30,7 @@ export default function ContactsList() {
           </button>
         </header>
       </ListContainer>
+
       <Card>
         <div className="info">
           <div className="contact-name">
@@ -40,6 +50,7 @@ export default function ContactsList() {
           </button>
         </div>
       </Card>
+
       <Card>
         <div className="info">
           <div className="contact-name">
@@ -59,6 +70,7 @@ export default function ContactsList() {
           </button>
         </div>
       </Card>
+
       <Card>
         <div className="info">
           <div className="contact-name">
